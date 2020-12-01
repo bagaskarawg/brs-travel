@@ -146,5 +146,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'Nama',
+        'address' => "Alamat",
+        'phone' => "Telepon",
+    ],
 ];

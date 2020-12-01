@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PoolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::group(['middleware' => 'admin'], function () {
+        Route::resources([
+            'pools' => PoolController::class,
+        ]);
+    });
+
+    Route::group(['middleware' => 'user'], function () {
+        Route::resource('reservations', 'ReservationController');
+    });
+});

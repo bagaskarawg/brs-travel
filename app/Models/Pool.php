@@ -10,6 +10,8 @@ class Pool extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function destinationRoutes(): HasMany
     {
         return $this->hasMany(Route::class, 'destination_pool_id');
