@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PoolController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PromoController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,15 +28,17 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
     Route::group(['middleware' => 'admin'], function () {
         Route::resources([
             'pools' => PoolController::class,
             'routes' => RouteController::class,
             'schedules' => ScheduleController::class,
+            'tickets' => TicketController::class,
+            'galleries' => GalleryController::class,
+            'promos' => PromoController::class,
+            'facilities' => FacilityController::class,
+            'posts' => PostController::class,
+            'testimonials' => TestimonialController::class,
         ]);
 
         Route::resource('settings', SettingController::class)->only(['index', 'store']);

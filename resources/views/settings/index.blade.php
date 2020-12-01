@@ -67,21 +67,21 @@
                                 <div class="grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-4">
                                         <x-jet-label for="facebook_url" value="{{ __('URL Facebook') }}" />
-                                        <x-jet-input id="facebook_url" name="facebook_url" type="text" class="mt-1 block w-full" value="{{ $setting->facebook_url }}" />
+                                        <x-jet-input id="facebook_url" name="facebook_url" type="url" class="mt-1 block w-full" value="{{ $setting->facebook_url }}" />
                                         <x-jet-input-error for="facebook_url" class="mt-2" />
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-4">
                                         <x-jet-label for="twitter_url" value="{{ __('URL Twitter') }}" />
-                                        <x-jet-input id="twitter_url" name="twitter_url" type="text" class="mt-1 block w-full" value="{{ $setting->twitter_url }}" />
+                                        <x-jet-input id="twitter_url" name="twitter_url" type="url" class="mt-1 block w-full" value="{{ $setting->twitter_url }}" />
                                         <x-jet-input-error for="twitter_url" class="mt-2" />
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-4">
                                         <x-jet-label for="instagram_url" value="{{ __('URL Instagram') }}" />
-                                        <x-jet-input id="instagram_url" name="instagram_url" type="text" class="mt-1 block w-full" value="{{ $setting->instagram_url }}" />
+                                        <x-jet-input id="instagram_url" name="instagram_url" type="url" class="mt-1 block w-full" value="{{ $setting->instagram_url }}" />
                                         <x-jet-input-error for="instagram_url" class="mt-2" />
                                     </div>
                                 </div>
