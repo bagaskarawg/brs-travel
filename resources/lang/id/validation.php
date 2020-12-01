@@ -150,5 +150,10 @@ return [
         'name' => 'Nama',
         'address' => "Alamat",
         'phone' => "Telepon",
+        'source_pool_id' => 'Pool Asal',
+        'destination_pool_id' => 'Pool Tujuan',
+        'price' => 'Harga',
+        'package_delivery_price' => 'Harga Pengiriman Barang',
+        'package_delivery_price_next_kg' => 'Harga Pengiriman Barang KG Selanjutnya',
     ],
 ];

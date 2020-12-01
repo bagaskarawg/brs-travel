@@ -11,6 +11,8 @@ class Route extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function destinationPool(): BelongsTo
     {
         return $this->belongsTo(Pool::class, 'destination_pool_id');
@@ -24,5 +26,20 @@ class Route extends Model
     public function tickets(): HasMany
     {
         return $this->hasMany(Ticket::class);
+    }
+
+    public function getFormattedPriceAttribute()
+    {
+        return number_format($this->price, 0, ',', '.');
+    }
+
+    public function getFormattedPackageDeliveryPriceAttribute()
+    {
+        return number_format($this->package_delivery_price, 0, ',', '.');
+    }
+
+    public function getFormattedPackageDeliveryPriceNextKgAttribute()
+    {
+        return number_format($this->package_delivery_price_next_kg, 0, ',', '.');
     }
 }

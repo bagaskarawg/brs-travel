@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PoolController;
+use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::group(['middleware' => 'admin'], function () {
         Route::resources([
             'pools' => PoolController::class,
+            'routes' => RouteController::class,
         ]);
     });
 
