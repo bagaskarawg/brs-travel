@@ -36,10 +36,8 @@ class UsersTableSeeder extends Seeder
         ];
 
         foreach ($users as $user) {
-            User::create([
-                ...$user,
-                'password' => bcrypt($user['is_admin'] ? 'admin123' : 'user1234'),
-            ]);
+            $user['password'] = bcrypt($user['is_admin'] ? 'admin123' : 'user1234');
+            User::create($user);
         }
     }
 }
