@@ -30,16 +30,16 @@ class Route extends Model
 
     public function getFormattedPriceAttribute()
     {
-        return number_format($this->price, 0, ',', '.');
+        return 'Rp ' . number_format($this->price, 0, ',', '.');
     }
 
     public function getFormattedPackageDeliveryPriceAttribute()
     {
-        return number_format($this->package_delivery_price, 0, ',', '.');
+        return 'Rp ' . number_format($this->package_delivery_price, 0, ',', '.');
     }
 
     public function getFormattedPackageDeliveryPriceNextKgAttribute()
     {
-        return number_format($this->package_delivery_price_next_kg, 0, ',', '.');
+        return 'Rp ' . number_format($this->package_delivery_price_next_kg, 0, ',', '.');
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PoolController;
 use App\Http\Controllers\RouteController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::resources([
             'pools' => PoolController::class,
             'routes' => RouteController::class,
+            'schedules' => ScheduleController::class,
         ]);
     });
 
