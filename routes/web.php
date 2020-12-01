@@ -3,6 +3,7 @@
 use App\Http\Controllers\PoolController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
             'routes' => RouteController::class,
             'schedules' => ScheduleController::class,
         ]);
+
+        Route::resource('settings', SettingController::class)->only(['index', 'store']);
     });
 
     Route::group(['middleware' => 'user'], function () {
