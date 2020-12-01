@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->hasMany(Ticket::class);
     }
 
+    public function scopeAdmin($query)
+    {
+        return $query->where('is_admin', true);
+    }
+
     public function isAdmin(): bool
     {
         return $this->is_admin;
