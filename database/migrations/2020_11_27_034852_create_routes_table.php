@@ -15,6 +15,11 @@ class CreateRoutesTable extends Migration
     {
         Schema::create('routes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('source_pool_id');
+            $table->foreignId('destination_pool_id');
+            $table->decimal('price');
+            $table->decimal('package_delivery_price')->nullable();
+            $table->decimal('package_delivery_price_next_kg')->nullable();
             $table->timestamps();
         });
     }

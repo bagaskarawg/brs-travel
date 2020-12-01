@@ -15,6 +15,12 @@ class CreatePoolsTable extends Migration
     {
         Schema::create('pools', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('photo')->nullable();
+            $table->string('map_link')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->timestamps();
         });
     }
