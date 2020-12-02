@@ -13,6 +13,7 @@ use App\Http\Controllers\TicketController;
 use App\Models\Gallery;
 use App\Models\Pool;
 use App\Models\Promo;
+use App\Models\Route as RouteModel;
 use App\Models\Setting;
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
@@ -35,8 +36,9 @@ Route::get('/', function () {
     $testimonials = Testimonial::all();
     $promos = Promo::all()->chunk(3);
     $pools = Pool::all();
+    $routes = RouteModel::with('sourcePool:id,name', 'destinationPool:id,name')->get();
 
-    return view('welcome', compact('setting', 'slides', 'galleries', 'testimonials', 'promos', 'pools'));
+    return view('welcome', compact('setting', 'slides', 'galleries', 'testimonials', 'promos', 'pools', 'routes'));
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {

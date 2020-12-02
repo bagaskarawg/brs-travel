@@ -51,7 +51,7 @@
                                 <li class="nav-item active"><a class="page-scroll" href="#home">Home</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#pool">Pool</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#galeri">Galeri</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#pricing">Pricing</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#route">Rute</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#about">Tentang</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#promo">Promo</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#contact">Contact</a></li>
@@ -197,95 +197,48 @@
                         </div>
                     @endforeach
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </section>
-
-    <!--====== PORTFOLIO PART ENDS ======-->
-
-    <!--====== PRINICNG START ======-->
-
-    <section id="pricing" class="pricing-area ">
+    <section id="route" class="pricing-area ">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-10">
                     <div class="section-title text-center pb-25">
-                        <h3 class="title">Pricing Plans</h3>
-                        <p class="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
-                    </div> <!-- section title -->
+                        <h3 class="title">Rute</h3>
+                        <p class="text">Kami memiliki berbagai rute dengan jadwal perjalanan yang banyak dan dapat Anda sesuaikan dengan kebutuhan.</p>
+                    </div>
                 </div>
-            </div> <!-- row -->
+            </div>
             <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-7 col-sm-9">
-                    <div class="pricing-style mt-30">
-                        <div class="pricing-icon text-center">
-                            <img src="assets/images/basic.svg" alt="">
+                @foreach($routes as $route)
+                    <div class="col-lg-4 col-md-7 col-sm-9">
+                        <div class="pricing-style mt-30">
+                            <div class="pricing-icon text-center">
+                                <img src="assets/images/pro.svg" alt="">
+                            </div>
+                            <div class="pricing-header text-center">
+                                <h5 class="sub-title">{{ $route->sourcePool->name ?? 'dihapus '}} - {{ $route->destinationPool->name ?? 'dihapus' }}</h5>
+                                <p class="month"><span class="price">{{ $route->formatted_price }}</span>/seat</p>
+                            </div>
+                            <div class="pricing-list">
+                                <ul>
+                                    <li>
+                                        Pengiriman Paket:<br>
+                                        {{ $route->formatted_package_delivery_price }}/kg<br/>
+                                        <small>{{ $route->formatted_package_delivery_price_next_kg }}/kg berikutnya</small>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pricing-btn rounded-buttons text-center">
+                                <a class="main-btn rounded-one" href="{{ route('reservations.create') }}">Pesan Tiket</a>
+                            </div>
                         </div>
-                        <div class="pricing-header text-center">
-                            <h5 class="sub-title">Basic</h5>
-                            <p class="month"><span class="price">$ 199</span>/month</p>
-                        </div>
-                        <div class="pricing-list">
-                            <ul>
-                                <li><i class="lni lni-check-mark-circle"></i> Carefully crafted components</li>
-                                <li><i class="lni lni-check-mark-circle"></i> Amazing page examples</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-one" href="#">GET STARTED</a>
-                        </div>
-                    </div> <!-- pricing style one -->
-                </div>
-
-                <div class="col-lg-4 col-md-7 col-sm-9">
-                    <div class="pricing-style mt-30">
-                        <div class="pricing-icon text-center">
-                            <img src="assets/images/pro.svg" alt="">
-                        </div>
-                        <div class="pricing-header text-center">
-                            <h5 class="sub-title">Pro</h5>
-                            <p class="month"><span class="price">$ 399</span>/month</p>
-                        </div>
-                        <div class="pricing-list">
-                            <ul>
-                                <li><i class="lni lni-check-mark-circle"></i> Carefully crafted components</li>
-                                <li><i class="lni lni-check-mark-circle"></i> Amazing page examples</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-one" href="#">GET STARTED</a>
-                        </div>
-                    </div> <!-- pricing style one -->
-                </div>
-
-                <div class="col-lg-4 col-md-7 col-sm-9">
-                    <div class="pricing-style mt-30">
-                        <div class="pricing-icon text-center">
-                            <img src="assets/images/enterprise.svg" alt="">
-                        </div>
-                        <div class="pricing-header text-center">
-                            <h5 class="sub-title">Enterprise</h5>
-                            <p class="month"><span class="price">$ 699</span>/month</p>
-                        </div>
-                        <div class="pricing-list">
-                            <ul>
-                                <li><i class="lni lni-check-mark-circle"></i> Carefully crafted components</li>
-                                <li><i class="lni lni-check-mark-circle"></i> Amazing page examples</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-one" href="#">GET STARTED</a>
-                        </div>
-                    </div> <!-- pricing style one -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </section>
-
-    <!--====== PRINICNG ENDS ======-->
-
-    <!--====== ABOUT PART START ======-->
-
     <section id="about" class="about-area">
         <div class="container">
             <div class="row">
