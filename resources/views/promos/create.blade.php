@@ -17,29 +17,46 @@
                     </div>
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
-                    <form method="POST" action="{{ route('testimonials.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('promos.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="shadow overflow-hidden sm:rounded-md">
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <div class="grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-4">
-                                        <x-jet-label for="name" value="{{ __('Nama') }}" />
-                                        <x-jet-input id="name" name="name" type="text" class="mt-1 block w-full" />
-                                        <x-jet-input-error for="name" class="mt-2" />
+                                        <x-jet-label for="path" value="{{ __('Photo') }}" />
+                                        <x-jet-input id="path" type="file" class="mt-1 block w-full" name="path" />
+                                        <x-jet-input-error for="path" class="mt-2" />
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-4">
-                                        <x-jet-label for="content" value="{{ __('Konten') }}" />
-                                        <textarea class="form-input rounded-md shadow-sm mt-1 block w-full" name="content"></textarea>
-                                        <x-jet-input-error for="content" class="mt-2" />
+                                        <x-jet-label for="url" value="{{ __('URL') }}" />
+                                        <x-jet-input id="url" name="url" type="url" class="mt-1 block w-full" />
+                                        <x-jet-input-error for="url" class="mt-2" />
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-4">
-                                        <x-jet-label for="image" value="{{ __('Photo') }}" />
-                                        <x-jet-input id="image" type="file" class="mt-1 block w-full" name="image" />
-                                        <x-jet-input-error for="image" class="mt-2" />
+                                        <x-jet-label for="code" value="{{ __('Kode') }}" />
+                                        <x-jet-input id="code" name="code" type="text" class="mt-1 block w-full" />
+                                        <x-jet-input-error for="code" class="mt-2" />
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-4">
+                                        <x-jet-label for="discount_type" value="{{ __('Tipe') }}" />
+                                        <select id="discount_type" name="discount_type" class="form-input rounded-md shadow-sm mt-1 block w-full">
+                                            <option value="nominal">Nominal</option>
+                                            <option value="persentase">Persentase</option>
+                                        </select>
+                                        <x-jet-input-error for="discount_type" class="mt-2" />
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-4">
+                                        <x-jet-label for="discount_value" value="{{ __('Nilai') }}" />
+                                        <x-jet-input id="discount_value" name="discount_value" type="number" class="mt-1 block w-full" />
+                                        <x-jet-input-error for="discount_value" class="mt-2" />
                                     </div>
                                 </div>
                             </div>

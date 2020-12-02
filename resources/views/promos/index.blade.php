@@ -31,7 +31,7 @@
                                             {{ __("Tipe") }}
                                         </th>
                                         <th scope="col"
-                                            class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            class="text-right px-6 py-3 bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             {{ __("Nilai") }}
                                         </th>
                                         <th scope="col" class="px-6 py-3 bg-gray-50">
@@ -46,19 +46,33 @@
                                                 <div class="flex items-center">
                                                     <div class="flex-shrink-0 h-10 w-10">
                                                         <img class="h-10 w-10 rounded-full"
-                                                            src="{{ asset($promo->image) }}"
+                                                            src="{{ asset($promo->path) }}"
                                                             alt="Foto">
                                                     </div>
                                                     <div class="ml-4">
                                                         <div class="text-sm text-gray-900">
-                                                            {{ $promo->name }}
+                                                            <a href="{{ $promo->url }}" target="_blank">{{ $promo->url }}</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">
-                                                    {{ $promo->content }}
+                                                    {{ $promo->code }}
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm text-gray-900">
+                                                    {{ ucfirst($promo->discount_type) }}
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right">
+                                                <div class="text-sm text-gray-900">
+                                                    {{
+                                                        ($promo->discount_type === 'nominal' ? 'Rp ' : '') .
+                                                        number_format($promo->discount_value) .
+                                                        ($promo->discount_type === 'persentase' ? '%' : '')
+                                                     }}
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Promo;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PromoController extends Controller
 {
@@ -22,13 +23,14 @@ class PromoController extends Controller
     public function store(Request $request)
     {
         $attributes = $this->validate($request, [
-            'user_id' => ['required', 'exists:users,id'],
-            'title' => ['required'],
-            'body' => ['required'],
-            'published_at' => ['nullable']
+            'path' => ['required', 'image'],
+            'url' => ['nullable', 'url'],
+            'code' => ['nullable', 'unique:promos'],
+            'discount_type' => ['nullable', 'in:nominal,persentase'],
+            'discount_value' => ['nullable', 'numeric', 'min:0']
         ]);
 
-        $attributes['slug'] = Str::slug($attributes['title']);
+        $attributes['path'] = $request->file('path')->storeAs('promos', md5(time()), 'public');
 
         Promo::create($attributes);
 
@@ -38,21 +40,25 @@ class PromoController extends Controller
 
     public function edit(Promo $promo)
     {
-        $users = User::admin()->get();
-
-        return view('promos.edit', compact('promo', 'users'));
+        return view('promos.edit', compact('promo'));
     }
 
     public function update(Request $request, Promo $promo)
     {
         $attributes = $this->validate($request, [
-            'user_id' => ['required', 'exists:users,id'],
-            'title' => ['required'],
-            'body' => ['required'],
-            'published_at' => ['nullable']
+            'path' => ['nullable', 'image'],
+            'url' => ['nullable', 'url'],
+            'code' => [
+                'nullable',
+                Rule::unique('promos')->ignoreModel($promo)
+            ],
+            'discount_type' => ['nullable', 'in:nominal,persentase'],
+            'discount_value' => ['nullable', 'numeric', 'min:0']
         ]);
 
-        $attributes['slug'] = Str::slug($attributes['title']);
+        if ($request->hasFile('path')) {
+            $attributes['path'] = $request->file('path')->storeAs('promos', md5(time()), 'public');
+        }
 
         $promo->update($attributes);
 
