@@ -104,7 +104,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="7" class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                            <td colspan="8" class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                                 {{ __('No records found.') }}
                                             </td>
                                         </tr>
