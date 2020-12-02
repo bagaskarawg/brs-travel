@@ -23,7 +23,7 @@ class CreateTicketsTable extends Migration
             $table->foreignIdFor(Route::class);
             $table->foreignIdFor(Schedule::class);
             $table->foreignIdFor(Promo::class)->nullable();
-            $table->string('ticker_number');
+            $table->string('ticket_number');
             $table->string('type');
             $table->decimal('price');
             $table->decimal('discount')->default(0);

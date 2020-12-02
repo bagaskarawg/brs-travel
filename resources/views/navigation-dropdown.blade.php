@@ -60,6 +60,9 @@
                             </x-jet-dropdown>
                         </div>
                     @else
+                        <x-jet-nav-link href="/">
+                            Home
+                        </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('reservations.index') }}" :active="request()->routeIs('reservations*')">
                             Reservasi
                         </x-jet-nav-link>
@@ -171,9 +174,12 @@
                     {{ __('Tiket') }}
                 </x-jet-responsive-nav-link>
             @else
-            <x-jet-responsive-nav-link href="{{ route('reservations.index') }}" :active="request()->routeIs('reservations*')">
-                {{ __('Reservasi') }}
-            </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="/">
+                    {{ __('Home') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('reservations.index') }}" :active="request()->routeIs('reservations*')">
+                    {{ __('Reservasi') }}
+                </x-jet-responsive-nav-link>
             @endif
         </div>
 

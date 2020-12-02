@@ -10,6 +10,10 @@ class Ticket extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+    protected $dates = ['date'];
+
     public function promo(): BelongsTo
     {
         return $this->belongsTo(Promo::class);
