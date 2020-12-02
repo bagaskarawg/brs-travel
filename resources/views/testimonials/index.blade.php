@@ -38,7 +38,7 @@
                                                 <div class="flex items-center">
                                                     <div class="flex-shrink-0 h-10 w-10">
                                                         <img class="h-10 w-10 rounded-full"
-                                                            src="{{ asset($testimonial->image) }}"
+                                                            src="{{ Storage::disk('public')->get($testimonial->image) }}"
                                                             alt="Foto">
                                                     </div>
                                                     <div class="ml-4">
