@@ -30,7 +30,7 @@ class PoolController extends Controller
             'photo' => 'nullable|image'
         ]);
 
-        $attributes['photo'] = $request->file('photo')->storeAs('pools', $request->user()->id, 'public');
+        $attributes['photo'] = $request->file('photo')->storeAs('pools', md5(time()), 'public');
 
         Pool::create($attributes);
 
@@ -55,7 +55,7 @@ class PoolController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            $attributes['photo'] = $request->file('photo')->storeAs('pools', $request->user()->id, 'public');
+            $attributes['photo'] = $request->file('photo')->storeAs('pools', md5(time()), 'public');
         }
 
         $pool->update($attributes);

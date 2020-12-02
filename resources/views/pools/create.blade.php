@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                             <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
-                                <x-jet-button wire:loading.attr="disabled" wire:target="photo">
+                                <x-jet-button>
                                     {{ __('Save') }}
                                 </x-jet-button>
                             </div>
