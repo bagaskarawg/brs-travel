@@ -54,7 +54,7 @@
                                 <li class="nav-item"><a class="page-scroll" href="#route">Rute</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#about">Tentang</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#promo">Promo</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#contact">Contact</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#post">News & Blog</a></li>
                             </ul>
                         </div>
                         <div class="navbar-btn d-none d-sm-inline-block">
@@ -279,16 +279,76 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingFour">
+                                        <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Fasilitas</a>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                @foreach($facilities as $facility)
+                                                    <div class="col-md-2 text-center">
+                                                        <img src="{{ asset($facility->image) }}" alt="{{ $facility->caption }}">
+                                                        <p class="text">{{ $facility->caption }}</p>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div> <!-- faq accordion -->
                     </div> <!-- faq content -->
                 </div>
                 <div class="col-lg-7">
                     <div class="about-image mt-50">
-                        <img src="assets/images/about.jpg" alt="about">
+                        <img src="{{ asset('images/logo.jpeg') }}" alt="about">
                     </div> <!-- faq image -->
                 </div>
             </div> <!-- row -->
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="faq-content mt-45">
+                        <div class="about-title">
+                            <h6 class="sub-title">Tentang Kami</h6>
+                        </div> <!-- faq title -->
+                        <div class="about-accordion">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Kisah Kami</a>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text">{{ $setting->story }}</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- card -->
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Visi</a>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text">{{ $setting->vision }}</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- card -->
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Misi</a>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text">{{ $setting->mission }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- faq accordion -->
+                    </div> <!-- faq content -->
+                </div>
+            </div>
         </div> <!-- container -->
     </section>
     <section id="testimonial" class="testimonial-area">
@@ -374,123 +434,46 @@
             @endforeach
         </div>
     </section>
-
-    <!--====== TEAM  ENDS ======-->
-
-    <!--====== CONTACT PART START ======-->
-
-    <section id="contact" class="contact-area">
+    <section id="post" class="contact-area">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-10">
                     <div class="section-title text-center pb-30">
-                        <h3 class="title">Contact</h3>
-                        <p class="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
-                    </div> <!-- section title -->
+                        <h3 class="title">News & Blog</h3>
+                        <p class="text">Kami selalu membagikan berita terbaru mengenai aktivitas kami dan kami berusaha untuk memberikan postingan yang menarik untuk bacaan Anda.</p>
+                    </div>
                 </div>
-            </div> <!-- row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="contact-map mt-30">
-                        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Mission%20District%2C%20San%20Francisco%2C%20CA%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                    </div> <!-- row -->
-                </div>
-            </div> <!-- row -->
+            </div>
             <div class="contact-info pt-30">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-contact-info contact-color-1 mt-30 d-flex ">
-                            <div class="contact-info-icon">
-                                <i class="lni lni-map-marker"></i>
-                            </div>
-                            <div class="contact-info-content media-body">
-                                <p class="text"> Elizabeth St, Melbourne<br>1202 Australia.</p>
-                            </div>
-                        </div> <!-- single contact info -->
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-contact-info contact-color-2 mt-30 d-flex ">
-                            <div class="contact-info-icon">
-                                <i class="lni lni-envelope"></i>
-                            </div>
-                            <div class="contact-info-content media-body">
-                                <p class="text">hello@ayroui.com</p>
-                                <p class="text">support@uideck.com</p>
-                            </div>
-                        </div> <!-- single contact info -->
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-contact-info contact-color-3 mt-30 d-flex ">
-                            <div class="contact-info-icon">
-                                <i class="lni lni-phone"></i>
-                            </div>
-                            <div class="contact-info-content media-body">
-                                <p class="text">+333 789-321-654</p>
-                                <p class="text">+333 985-458-609</p>
-                            </div>
-                        </div> <!-- single contact info -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- contact info -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="contact-wrapper form-style-two pt-115">
-                        <h4 class="contact-title pb-10"><i class="lni lni-envelope"></i> Leave <span>A Message.</span></h4>
-
-                        <form id="contact-form" action="assets/contact.php" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-input mt-25">
-                                        <label>Name</label>
-                                        <div class="input-items default">
-                                            <input name="name" type="text" placeholder="Name">
-                                            <i class="lni lni-user"></i>
-                                        </div>
-                                    </div> <!-- form input -->
+                <div class="row justify-content-center">
+                    @foreach($posts as $post)
+                        <div class="col-lg-4 col-md-7 col-sm-9">
+                            <div class="single-features mt-40">
+                                <div class="features-title-icon d-flex justify-content-between">
+                                    <h4 class="features-title">{{ $post->title }}</h4>
+                                    <div class="features-icon">
+                                        <i class="lni lni-brush"></i>
+                                        <img class="shape" src="assets/images/f-shape-1.svg" alt="Shape">
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-input mt-25">
-                                        <label>Email</label>
-                                        <div class="input-items default">
-                                            <input type="email" name="email" placeholder="Email">
-                                            <i class="lni lni-envelope"></i>
-                                        </div>
-                                    </div> <!-- form input -->
+                                <div class="features-content">
+                                    <p class="text">{{ $post->body }}</p>
+                                    <small>{{ optional($post->published_at)->format('d F Y H:i') }}</small>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="form-input mt-25">
-                                        <label>Massage</label>
-                                        <div class="input-items default">
-                                            <textarea name="massage" placeholder="Massage"></textarea>
-                                            <i class="lni lni-pencil-alt"></i>
-                                        </div>
-                                    </div> <!-- form input -->
-                                </div>
-                                <p class="form-message"></p>
-                                <div class="col-md-12">
-                                    <div class="form-input light-rounded-buttons mt-30">
-                                        <button class="main-btn light-rounded-two">Send Message</button>
-                                    </div> <!-- form input -->
-                                </div>
-                            </div> <!-- row -->
-                        </form>
-                    </div> <!-- contact wrapper form -->
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </section>
-
-    <!--====== CONTACT PART ENDS ======-->
-
-    <!--====== FOOTER PART START ======-->
-
     <section class="footer-area footer-dark">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="footer-logo text-center">
                         <a class="mt-30" href="/"><img src="images/logo.jpeg" alt="Logo" style="height: 150px"></a>
-                    </div> <!-- footer logo -->
+                    </div>
                     <ul class="social text-center mt-60">
                         @if($setting->facebook_url)
                             <li><a href="{{ $setting->facebook_url }}"><i class="lni lni-facebook-filled"></i></a></li>
@@ -502,6 +485,11 @@
                             <li><a href="{{ $setting->instagram_url }}"><i class="lni lni-instagram-original"></i></a></li>
                         @endif
                     </ul>
+                    <div class="copyright text-center mt-35">
+                        <p class="text">
+                            Copyright &copy; {{ date('Y') }}. Dibuat oleh <a href="https://bagaskarawg.id">Bagaskara Wisnu Gunawan</a> & Team.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

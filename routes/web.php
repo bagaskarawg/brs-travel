@@ -5,13 +5,16 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PoolController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PromoController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TicketController;
+use App\Models\Facility;
 use App\Models\Gallery;
 use App\Models\Pool;
+use App\Models\Post;
 use App\Models\Promo;
 use App\Models\Route as RouteModel;
 use App\Models\Setting;
@@ -37,8 +40,10 @@ Route::get('/', function () {
     $promos = Promo::all()->chunk(3);
     $pools = Pool::all();
     $routes = RouteModel::with('sourcePool:id,name', 'destinationPool:id,name')->get();
+    $facilities = Facility::all();
+    $posts = Post::all();
 
-    return view('welcome', compact('setting', 'slides', 'galleries', 'testimonials', 'promos', 'pools', 'routes'));
+    return view('welcome', compact('setting', 'slides', 'galleries', 'testimonials', 'promos', 'pools', 'routes', 'facilities', 'posts'));
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
@@ -59,6 +64,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     });
 
     Route::group(['middleware' => 'user'], function () {
-        Route::resource('reservations', 'ReservationController');
+        Route::resource('reservations', ReservationController::class);
     });
 });
