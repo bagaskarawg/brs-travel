@@ -33,7 +33,7 @@ Route::get('/', function () {
     $slides = Gallery::where('placement', 'slideshow')->orderBy('order')->get();
     $galleries = Gallery::where('placement', 'content')->orderBy('order')->get()->chunk(3);
     $testimonials = Testimonial::all();
-    $promos = Promo::all();
+    $promos = Promo::all()->chunk(3);
     $pools = Pool::all();
 
     return view('welcome', compact('setting', 'slides', 'galleries', 'testimonials', 'promos', 'pools'));
