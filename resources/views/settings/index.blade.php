@@ -23,7 +23,7 @@
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <div class="grid grid-cols-6 gap-6">
                                     <div class="col-span-6 sm:col-span-4">
-                                        <x-jet-label for="story" value="{{ __('Cerita Kami') }}" />
+                                        <x-jet-label for="story" value="{{ __('Kisah Kami') }}" />
                                         <textarea class="form-input rounded-md shadow-sm mt-1 block w-full" name="story">{{ $setting->story }}</textarea>
                                         <x-jet-input-error for="story" class="mt-2" />
                                     </div>

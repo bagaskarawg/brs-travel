@@ -16,8 +16,10 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->user()->isAdmin()) {
-            return $next($request);
+        if ($request->user()->isAdmin()) {
+            abort(404);
         }
+
+        return $next($request);
     }
 }

@@ -24,7 +24,7 @@ class GalleryController extends Controller
     {
         $attributes = $this->validate($request, [
             'path' => ['required', 'image'],
-            'url' => ['required', 'url'],
+            'url' => ['nullable', 'url'],
             'placement' => [
                 'required',
                 Rule::in(Gallery::PLACEMENTS)
@@ -49,7 +49,7 @@ class GalleryController extends Controller
     {
         $attributes = $this->validate($request, [
             'path' => ['nullable', 'image'],
-            'url' => ['required', 'url'],
+            'url' => ['nullable', 'url'],
             'placement' => [
                 'required',
                 Rule::in(Gallery::PLACEMENTS)

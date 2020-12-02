@@ -10,6 +10,11 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TicketController;
+use App\Models\Gallery;
+use App\Models\Pool;
+use App\Models\Promo;
+use App\Models\Setting;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +29,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $setting = Setting::firstOrNew();
+    $slides = Gallery::where('placement', 'slideshow')->orderBy('order')->get();
+    $galleries = Gallery::where('placement', 'content')->orderBy('order')->get()->chunk(3);
+    $testimonials = Testimonial::all();
+    $promos = Promo::all();
+    $pools = Pool::all();
+
+    return view('welcome', compact('setting', 'slides', 'galleries', 'testimonials', 'promos', 'pools'));
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {

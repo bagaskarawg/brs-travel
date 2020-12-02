@@ -150,6 +150,7 @@ return [
         'name' => 'Nama',
         'address' => "Alamat",
         'phone' => "Telepon",
+        'phone_number' => "No Telepon",
         'source_pool_id' => 'Pool Asal',
         'destination_pool_id' => 'Pool Tujuan',
         'price' => 'Harga',
