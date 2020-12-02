@@ -46,7 +46,7 @@
                                                 <div class="flex items-center">
                                                     <div class="flex-shrink-0 h-10 w-10">
                                                         <img class="h-10 w-10 rounded-full"
-                                                            src="{{ Storage::disk('public')->get($gallery->path) }}"
+                                                            src="{{ Storage::disk('public')->url($gallery->path) }}"
                                                             alt="Foto">
                                                     </div>
                                                 </div>

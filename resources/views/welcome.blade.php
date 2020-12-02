@@ -110,7 +110,7 @@
                             <div class="slider-image-box d-none d-lg-flex align-items-end">
                                 <div class="slider-image">
                                     <a href="{{ $slide->url }}">
-                                        <img src="{{ Storage::disk('public')->get($slide->path) }}" alt="Slideshow">
+                                        <img src="{{ Storage::disk('public')->url($slide->path) }}" alt="Slideshow">
                                     </a>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                 @foreach($pools as $pool)
                     <div class="col-lg-4 col-md-7 col-sm-9">
                         <div class="single-features mt-40">
-                            <img src="{{ Storage::disk('public')->get($pool->photo) }}" alt="{{ $pool->name }}">
+                            <img src="{{ Storage::disk('public')->url($pool->photo) }}" alt="{{ $pool->name }}">
                             <div class="features-title-icon d-flex justify-content-between">
                                 <h4 class="features-title">{{ $pool->name }}</h4>
                             </div>
@@ -177,11 +177,11 @@
                                 <div class="col-lg-4 col-sm-6 branding-4 planning-4">
                                     <div class="single-portfolio">
                                         <div class="portfolio-image">
-                                            <img src="{{ Storage::disk('public')->get($gallery->path) }}" alt="">
+                                            <img src="{{ Storage::disk('public')->url($gallery->path) }}" alt="">
                                             <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                                                 <div class="portfolio-content">
                                                     <div class="portfolio-icon">
-                                                        <a class="image-popup" href="{{ Storage::disk('public')->get($gallery->path) }}"><i class="lni lni-zoom-in"></i></a>
+                                                        <a class="image-popup" href="{{ Storage::disk('public')->url($gallery->path) }}"><i class="lni lni-zoom-in"></i></a>
                                                         <img src="assets/images/portfolio/shape.svg" alt="shape" class="shape">
                                                     </div>
                                                     <div class="portfolio-icon">
@@ -288,7 +288,7 @@
                                             <div class="row">
                                                 @foreach($facilities as $facility)
                                                     <div class="col-md-2 text-center">
-                                                        <img src="{{ Storage::disk('public')->get($facility->image) }}" alt="{{ $facility->caption }}">
+                                                        <img src="{{ Storage::disk('public')->url($facility->image) }}" alt="{{ $facility->caption }}">
                                                         <p class="text">{{ $facility->caption }}</p>
                                                     </div>
                                                 @endforeach
@@ -384,7 +384,7 @@
                                     <div class="testimonial-author d-sm-flex justify-content-between">
                                         <div class="author-info d-flex align-items-center">
                                             <div class="author-image">
-                                                <img src="{{ Storage::disk('public')->get($testimonial->image) }}" alt="author">
+                                                <img src="{{ Storage::disk('public')->url($testimonial->image) }}" alt="author">
                                             </div>
                                             <div class="author-name media-body">
                                                 <h5 class="name">{{ $testimonial->name }}</h5>
@@ -416,7 +416,7 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="team-style-eleven text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
                                 <div class="team-image">
-                                    <img src="{{ Storage::disk('public')->get($promo->path) }}" alt="Promo">
+                                    <img src="{{ Storage::disk('public')->url($promo->path) }}" alt="Promo">
                                 </div>
                                 <div class="team-content">
                                     <div class="team-social">
