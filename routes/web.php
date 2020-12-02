@@ -48,18 +48,15 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::group(['middleware' => 'admin'], function () {
-        Route::resources([
-            'pools' => PoolController::class,
-            'routes' => RouteController::class,
-            'schedules' => ScheduleController::class,
-            'tickets' => TicketController::class,
-            'galleries' => GalleryController::class,
-            'promos' => PromoController::class,
-            'facilities' => FacilityController::class,
-            'posts' => PostController::class,
-            'testimonials' => TestimonialController::class,
-        ]);
-
+        Route::resource('pools', PoolController::class)->except('show');
+        Route::resource('routes', RouteController::class)->except('show');
+        Route::resource('schedules', ScheduleController::class)->except('show');
+        Route::resource('tickets', TicketController::class)->except('show');
+        Route::resource('galleries', GalleryController::class)->except('show');
+        Route::resource('promos', PromoController::class)->except('show');
+        Route::resource('facilities', FacilityController::class)->except('show');
+        Route::resource('posts', PostController::class)->except('show');
+        Route::resource('testimonials', TestimonialController::class)->except('show');
         Route::resource('settings', SettingController::class)->only(['index', 'store']);
     });
 
